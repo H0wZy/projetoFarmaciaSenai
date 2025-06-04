@@ -94,3 +94,23 @@ Este sistema foi projetado para informatizar o controle de uma empresa farmacêu
 ### 📚 Enums
 
 #### `Genero`
+MASCULINO, FEMININO, OUTRO
+
+#### `Cargo`
+GERENTE, ATENDENTE, RH, FINANCEIRO, VENDEDOR, ALMOXARIFE, MOTORISTA
+
+#### `TipoNegocio`
+COMPRA, VENDA
+
+---
+
+## 🔄 Fluxo de Uso Esperado
+
+1. A empresa é inicializada com um nome e valor de caixa.
+2. Setores são criados e associados à empresa.
+3. Funcionários são atribuídos aos setores e configurados com benefícios.
+4. Produtos são registrados com valores de compra/venda e estoque.
+5. Transportadoras são adicionadas com áreas de atendimento.
+6. Negócios de compra/venda são iniciados e monitorados.
+7. A empresa pode calcular seu lucro estimado com base nas vendas e custos.
+8. Funcionários podem ter seus salários totais calculados.
