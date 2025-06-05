@@ -1,5 +1,8 @@
 # 📘 Documentação Técnica – Sistema de Gestão da Empresa Farmacêutica
 
+## 📰 Notion
+https://www.notion.so/Projeto-Java-Farm-cia-Senai-20813ad9573a8061a0fef80eb65ab988
+
 ## 📌 Visão Geral
 Este sistema foi projetado para informatizar o controle de uma empresa farmacêutica em crescimento. O sistema realiza o gerenciamento de setores, funcionários, produtos, transportadoras, caixa da empresa e negócios em andamento, com base em uma arquitetura orientada a objetos modelada em UML.
 
