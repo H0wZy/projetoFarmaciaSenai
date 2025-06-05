@@ -2,9 +2,9 @@ package models.produtos;
 
 import models.Produto;
 
-public class PrimeirosSocorros extends Produto {
+public class Desodorante extends Produto {
 
-    public PrimeirosSocorros() {
+    public Desodorante() {
     }
 
     @Override
