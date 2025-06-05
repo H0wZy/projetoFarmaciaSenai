@@ -1,0 +1,16 @@
+package enums;
+
+public enum Produtos {
+    MEDICAMENTOS,
+    HIGIENE,
+    ALIMENTOS,
+    PRIMEIROS_SOCORROS,
+    VITAMINAS_E_SUPLEMENTOS,
+    COSMETICOS,
+    CUIDADOSINTIMOS,
+    CUIDADOSBEBE,
+    PERFUMARIA,
+    CUIDADOSAUDE
+
+
+}
