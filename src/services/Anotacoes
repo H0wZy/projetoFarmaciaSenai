@@ -1,0 +1,11 @@
+Está sendo utilizado o map que tem a função de armazenar palavras chave valor
+Mensagem chave valor é o elemento no map que é um par formado por uma chave (key)
+e um valor (value)
+
+O computeIfAbsent é um método usado pelo HashMap que permite pegar e mudar o valor
+caso ainda não exista, sendo mais eficiente que o get e set. Permite calcular e
+inserir um valor para uma chave se essa chave ainda não estiver presente no mapa
+
+O Integer :: sum é uma sintaxe para que possa ser acessada o sum da classe Integer.
+O sum é o nome do método que está sendo referenciado, ele faz a soma de dois inteiros
+retornando o resultado como um inteiro.
