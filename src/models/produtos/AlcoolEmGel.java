@@ -2,13 +2,13 @@ package models.produtos;
 
 import models.Produto;
 
-public class Perfumaria extends Produto {
+public class AlcoolEmGel extends Produto {
 
-    public Perfumaria() {
+    public AlcoolEmGel() {
     }
 
     @Override
-    public String toString() {
+    public String toString(){
         return super.toString();
     }
 }

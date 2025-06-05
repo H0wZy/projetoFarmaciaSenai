@@ -2,13 +2,13 @@ package models.produtos;
 
 import models.Produto;
 
-public class Alimentos extends Produto {
+public class Antiacido extends Produto {
 
-    public Alimentos() {
+    public Antiacido() {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return super.toString();
     }
 }
