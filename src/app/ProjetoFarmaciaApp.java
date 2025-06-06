@@ -34,10 +34,16 @@ public class ProjetoFarmaciaApp extends Application {
         pStage.show();
     }
 
+import enums.Genero;
+import models.Funcionario;
+
     public static void main(String[] args) {
         launch(args);
         System.out.println("Hello, World!");
         Cargo cargo = Cargo.ALMOXARIFE;
         System.out.println("Eu trabalho como: " + cargo); // teste de retorno do ENUM cargo já formatado graças a classe "FormatarTexto".
+
+        Funcionario f1 = new Funcionario("Marcos", 1, 22, Genero.MASCULINO, Cargo.GERENTE, 1400, null);
+        System.out.println(f1.toString());
     }
 }

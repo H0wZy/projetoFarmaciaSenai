@@ -1,20 +1,26 @@
 package models;
 
+import interfaces.ICalculavel;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
-public class Empresa {
+public class Empresa implements ICalculavel {
     private String nome;
     private double caixaTotal;
     private List<Setor> setores;
     private List<Produto> produtos;
     private List<Transportadora> transportadoras;
+    private List<VendasProgramadas> vendasProgramadas;
 
-    public Empresa(String nome, double caixaTotal, List<Setor> setores, List<Produto> produtos, List<Transportadora> transportadoras) {
+    public Empresa(String nome, List<Setor> setores, List<Produto> produtos, List<Transportadora> transportadoras) {
         this.nome = nome;
-        this.caixaTotal = caixaTotal;
+        this.caixaTotal = 200000.00;
         this.setores = setores;
         this.produtos = produtos;
         this.transportadoras = transportadoras;
+        this.vendasProgramadas = new ArrayList<>();
     }
 
     public String getNome() {
@@ -57,9 +63,7 @@ public class Empresa {
         this.transportadoras = transportadoras;
     }
 
-    // public double calcular(){
-    //     return calc;
-    // }
+
 
     
 }
