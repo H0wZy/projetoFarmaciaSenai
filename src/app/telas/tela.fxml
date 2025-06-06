@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="398.0" prefWidth="600.0" style="-fx-background-color: #5F9EA0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.TelaController">
+    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1c4951" height="258.0" layoutX="302.0" layoutY="84.0" stroke="#1c4951" strokeType="INSIDE" width="257.0" />
+        <Label layoutX="329.0" layoutY="106.0" text="Nome:" textFill="WHITE" />
+        <TextField fx:id="txtNome" layoutX="330.0" layoutY="126.0" prefWidth="200" />
+
+        <Button layoutX="372.0" layoutY="355.0" onAction="#salvar" prefHeight="25.0" prefWidth="117.0" style="-fx-background-color: #15464F;" text="Salvar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <TextField fx:id="txtNome1" layoutX="329.0" layoutY="181.0" prefWidth="200" />
+      <Label layoutX="329.0" layoutY="160.0" text="Cargo:" textFill="WHITE" />
+      <TextField fx:id="txtNome2" layoutX="330.0" layoutY="234.0" prefWidth="200" />
+      <Label layoutX="330.0" layoutY="216.0" text="E-mail:" textFill="WHITE" />
+      <Label layoutX="331.0" layoutY="269.0" text="Senha:" textFill="WHITE" />
+      <TextField fx:id="txtNome11" layoutX="330.0" layoutY="287.0" prefWidth="200" />
+      <Label layoutX="352.0" layoutY="25.0" style="-fx-font-size: 27; -fx-font-family: arial;" text="CADASTRO" textFill="WHITE">
+         <font>
+            <Font name="" size="12.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <ImageView fitHeight="398.0" fitWidth="272.0" layoutX="-3.0">
+         <image>
+            <Image url="@../../../../Downloads/20250606_1501_Logo%20de%20Farmacêutica_simple_compose_01jx36d825e75r3h0ajva9jmk5.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>
