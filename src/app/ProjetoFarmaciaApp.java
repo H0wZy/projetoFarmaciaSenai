@@ -12,7 +12,8 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
+import enums.Genero;
+import models.Funcionario;
 import java.awt.*;
 
 
@@ -34,8 +35,7 @@ public class ProjetoFarmaciaApp extends Application {
         pStage.show();
     }
 
-import enums.Genero;
-import models.Funcionario;
+
 
     public static void main(String[] args) {
         launch(args);
