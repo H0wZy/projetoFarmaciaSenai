@@ -1,0 +1,29 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "ProjetoFarmaciaApp",
+            "request": "launch",
+            "mainClass": "app.ProjetoFarmaciaApp",
+            "projectName": "projetoFarmaciaSenai_3b8ac447",
+            "vmArgs": "--module-path \"C:/Program Files (x86)/Java/javafx-sdk-24.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "ConexaoBanco",
+            "request": "launch",
+            "mainClass": "database.ConexaoBanco",
+            "projectName": "projetoFarmaciaSenai_3b8ac447"
+        }
+    ]
+}
