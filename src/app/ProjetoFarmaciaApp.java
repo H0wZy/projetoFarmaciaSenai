@@ -22,17 +22,15 @@ public class ProjetoFarmaciaApp extends Application {
     @Override
     public void start(Stage pStage) throws Exception {
         pStage.setTitle("Projeto Farmacia");
-        Button botao = new Button("Ok");
-        botao.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                System.out.println("Teste");
-            }
-        });
-        StackPane root = new StackPane();
-        root.getChildren().add(botao);
-        pStage.setScene(new Scene(root,1280,720));
+    
+            
+        FXMLLoader root = new FXMLLoader(ProjetoFarmaciaApp.class.getResource("telas/tela.fxml"));
+        Scene scene = new Scene(root.load(),640,480);
+        
+        pStage.setScene(scene);
         pStage.show();
+
+    
     }
 
 
