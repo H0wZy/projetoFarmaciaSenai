@@ -1,8 +1,11 @@
 package database;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class ConexaoBanco {
     private static final String DB_URL = "jdbc:postgresql://localhost:8010/farmacia";
@@ -25,7 +28,29 @@ public class ConexaoBanco {
 
 
     public static void main(String[] args) {
-        Connection conn = ConexaoBanco.getConnection();
+        try (Connection conn = ConexaoBanco.getConnection()) {
+
+            String caminhoScript = "src/resources/db/scripts.sql";
+            String scriptSQL = Files.readString(Paths.get(caminhoScript));
+
+            String[] comandos = scriptSQL.split(";");
+
+            try (Statement stmt = conn.createStatement()) {
+                for (String comando : comandos) {
+                    comando = comando.trim();
+                    if (!comando.isEmpty()) {
+                        stmt.execute(comando + ";");
+                    }
+                }
+            }
+
+            System.out.println("Script executado com sucesso!");
+
+        } catch (Exception e) {
+            System.err.println("Erro ao executar o script SQL.");
+            e.printStackTrace();
+        }
+
 
     }
 }
