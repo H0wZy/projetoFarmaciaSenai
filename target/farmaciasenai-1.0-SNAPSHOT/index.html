@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="imagens/logoFarmacia.png" />
+  <title>Farmacia SENAI - Funcionários</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      height: 100vh;
+    }
+
+    .imagem-container {
+      width: 50%;
+      background-color: #15464F;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .imagem-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .conteudo-direita {
+        width: 50%;
+    background-color: #15464F;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
+    padding: 40px;
+    overflow-y: auto;
+    }
+
+    h2 {
+      color: white;
+      text-align: center;
+    }
+
+    h1{
+        color: white;
+        text-align: center;
+        margin-top: 70px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, select {
+      padding: 5px;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #15464F;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .form-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    #funcionario-form {
+      display: flex;
+      flex-direction: column;
+      margin-left: 130px;
+      width: 100%;
+    }
+
+    #message {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    #funcionarios-list {
+        margin-bottom: 20px;
+        color: white;
+        text-align: center;
+        width: 100%;
+    }
+
+    .funcionario-item {
+      border-bottom: 1px solid #ccc;
+      padding: 5px 0;
+    }
+
+    .error {
+      color: red;
+    }
+
+    .success {
+      color: green;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .imagem-container, .conteudo-direita {
+        width: 100%;
+        height: auto;
+      }
+
+      .imagem-container img {
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="imagem-container">
+      <img src="imagens/logoFarmacia.png" alt="Logo da Farmácia SENAI" />
+    </div>
+
+    <div class="conteudo-direita">
+      <h1>Funcionários - Farmacia SENAI</h1>
+
+      <div id="funcionarios-list">Carregando...</div>
+
+      <div class="form-container">
+        <h2>Adicionar Funcionário</h2>
+        <form id="funcionario-form">
+          <label for="id">ID:</label>
+          <input type="number" id="id" name="id" required />
+
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" required />
+
+          <label for="idade">Idade:</label>
+          <input type="number" id="idade" name="idade" required min="0" />
+
+          <label for="genero">Gênero:</label>
+          <select id="genero" name="genero" required>
+            <option value="">Selecione</option>
+            <option value="MASCULINO">Masculino</option>
+            <option value="FEMININO">Feminino</option>
+            <option value="OUTRO">Outro</option>
+          </select>
+
+          <label for="cargo">Cargo:</label>
+          <select id="cargo" name="cargo" required>
+            <option value="">Selecione</option>
+            <option value="GERENTE">Gerente</option>
+            <option value="VENDEDOR">Vendedor</option>
+            <option value="CAIXA">Caixa</option>
+          </select>
+
+          <label for="salario">Salário:</label>
+          <input type="number" id="salario" name="salario" required step="0.01" min="0" />
+
+          <button type="submit">Adicionar</button>
+        </form>
+
+        <div id="message"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const apiUrl = 'http://localhost:8081/farmaciasenai_war/funcionarios';
+
+    async function listarFuncionarios() {
+      const listDiv = document.getElementById('funcionarios-list');
+      listDiv.textContent = 'Carregando...';
+
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) throw new Error('Erro ao carregar funcionários');
+
+        const funcionarios = await response.json();
+
+        if (funcionarios.length === 0) {
+          listDiv.textContent = 'Nenhum funcionário encontrado.';
+          return;
+        }
+
+        listDiv.innerHTML = '';
+        funcionarios.forEach(f => {
+          const div = document.createElement('div');
+          div.className = 'funcionario-item';
+          div.textContent = `ID: ${f.id} | Nome: ${f.nome} | Idade: ${f.idade} | Gênero: ${f.genero} | Cargo: ${f.cargo} | Salário: R$ ${f.salario.toFixed(2)}`;
+          listDiv.appendChild(div);
+        });
+      } catch (error) {
+        listDiv.textContent = 'Erro ao carregar funcionários.';
+        listDiv.style.color = 'white';
+        console.error(error);
+      }
+    }
+
+    async function adicionarFuncionario(event) {
+      event.preventDefault();
+
+      const messageDiv = document.getElementById('message');
+      messageDiv.textContent = '';
+      messageDiv.className = '';
+
+      const funcionario = {
+        id: Number(document.getElementById('id').value),
+        nome: document.getElementById('nome').value,
+        idade: Number(document.getElementById('idade').value),
+        genero: document.getElementById('genero').value,
+        cargo: document.getElementById('cargo').value,
+        salario: Number(document.getElementById('salario').value)
+      };
+
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(funcionario)
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          messageDiv.className = 'error';
+          messageDiv.textContent = result.error || 'Erro ao adicionar funcionário.';
+        } else {
+          messageDiv.className = 'success';
+          messageDiv.textContent = result.message || 'Funcionário adicionado com sucesso!';
+          document.getElementById('funcionario-form').reset();
+          listarFuncionarios();
+        }
+      } catch (error) {
+        messageDiv.className = 'error';
+        messageDiv.textContent = 'Erro ao enviar requisição.';
+        console.error(error);
+      }
+    }
+
+    document.getElementById('funcionario-form').addEventListener('submit', adicionarFuncionario);
+    listarFuncionarios();
+  </script>
+</body>
+</html>

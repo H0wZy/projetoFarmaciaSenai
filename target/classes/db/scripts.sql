@@ -1,0 +1,68 @@
+CREATE TABLE IF NOT EXISTS EMPRESA (
+                                       ID SERIAL PRIMARY KEY,
+                                       NOME VARCHAR(100),
+    CAIXA_TOTAL DOUBLE PRECISION
+    );
+
+CREATE TABLE IF NOT EXISTS SETOR (
+                                     ID SERIAL PRIMARY KEY,
+                                     NOME VARCHAR(100),
+    EMPRESA_ID INT REFERENCES EMPRESA(ID)
+    );
+
+CREATE TABLE IF NOT EXISTS FUNCIONARIO (
+                                           ID SERIAL PRIMARY KEY,
+                                           NOME VARCHAR(100),
+    IDADE INT,
+    GENERO VARCHAR(50),  -- era GENERO_ENUM
+    CARGO VARCHAR(50),   -- era CARGO_ENUM
+    SALARIO DOUBLE PRECISION,
+    SETOR_ID INT REFERENCES SETOR(ID)
+    );
+
+CREATE TABLE IF NOT EXISTS BENEFICIOS (
+                                          FUNCIONARIO_ID INT PRIMARY KEY REFERENCES FUNCIONARIO(ID),
+    VALE_REFEICAO DOUBLE PRECISION,
+    VALE_ALIMENTACAO DOUBLE PRECISION,
+    PLANO_SAUDE DOUBLE PRECISION,
+    PLANO_ODONTO DOUBLE PRECISION
+    );
+
+CREATE TABLE IF NOT EXISTS PRODUTO (
+                                       ID SERIAL PRIMARY KEY,
+                                       NOME VARCHAR(100),
+    PRECO_COMPRA DOUBLE PRECISION,
+    PRECO_VENDA DOUBLE PRECISION,
+    QUANTIDADE_ESTOQUE INT,
+    EMPRESA_ID INT REFERENCES EMPRESA(ID)
+    );
+
+CREATE TABLE IF NOT EXISTS TRANSPORTADORA (
+                                              ID SERIAL PRIMARY KEY,
+                                              NOME VARCHAR(100),
+    EMPRESA_ID INT REFERENCES EMPRESA(ID)
+    );
+
+CREATE TABLE IF NOT EXISTS LOCAISATENDIMENTO (
+                                                 ID SERIAL PRIMARY KEY,
+                                                 TRANSPORTADORA_ID INT REFERENCES TRANSPORTADORA(ID),
+    LOCAL VARCHAR(100)
+    );
+
+CREATE TABLE IF NOT EXISTS NEGOCIOSEMANDAMENTO (
+                                                   ID SERIAL PRIMARY KEY,
+                                                   TIPO VARCHAR(50),  -- era TIPO_ENUM
+    STATUS VARCHAR(50)
+    );
+
+CREATE TABLE IF NOT EXISTS NEGOCIO_PRODUTO (
+                                               NEGOCIO_ID INT REFERENCES NEGOCIOSEMANDAMENTO(ID),
+    PRODUTO_ID INT REFERENCES PRODUTO(ID),
+    PRIMARY KEY (NEGOCIO_ID, PRODUTO_ID)
+    );
+
+CREATE TABLE IF NOT EXISTS NEGOCIO_FUNCIONANDO (
+                                                   NEGOCIO_ID INT REFERENCES NEGOCIOSEMANDAMENTO(ID),
+    FUNCIONARIO_ID INT REFERENCES FUNCIONARIO(ID),
+    PRIMARY KEY (NEGOCIO_ID, FUNCIONARIO_ID)
+    );
