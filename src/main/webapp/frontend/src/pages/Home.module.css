@@ -1,0 +1,34 @@
+/*
+ * src/pages/Home.module.css
+ * Os estilos definidos aqui SÓ se aplicarão ao componente Home.jsx
+ * e estão usando as variáveis do nosso theme.css
+ */
+
+ .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    min-height: 90vh; /* Para ocupar a maior parte da tela */
+  
+    /* Usando a variável de cor de fundo do nosso tema! */
+    background-color: var(--color-background);
+  }
+  
+  .title {
+    font-size: 2.5rem; /* 40px */
+    margin-bottom: 1rem;
+  
+    /* Usando a variável de cor laranja para o título! */ 
+    color: var(--color-orange);
+  }
+  
+  .subtitle {
+    font-size: 1.25rem; /* 20px */
+  
+    /* Usando a variável de cor de texto secundário do tema! */
+    color: var(--color-text-secondary);
+  }
+  

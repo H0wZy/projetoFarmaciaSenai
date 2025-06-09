@@ -1,0 +1,12 @@
+/*
+ * Define as variáveis de cor que estarão disponíveis em TODA a aplicação.
+ * O seletor :root se refere à raiz do documento (a tag <html>).
+*/
+:root {
+    --color-background: #f0f2f5;
+    --color-white: #ffffff;
+    --color-orange: #ff6600;
+    --color-text-primary: #333333;
+    --color-text-secondary: #666666;
+  }
+  
