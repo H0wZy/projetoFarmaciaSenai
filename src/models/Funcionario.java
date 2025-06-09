@@ -170,8 +170,8 @@ public class Funcionario implements ICalculavel {
     }
 
     @Override
-    public double calcular(double salario, double lucro) {
-        return ICalculavel.super.calcular(salario, lucro);
+    public double calcular() {
+        return ICalculavel.super.calcular();
     }
 
     @Override

@@ -1,7 +1,7 @@
 package interfaces;
 
 public interface ICalculavel {
-    default double calcular(double salario, double lucro) {
+    default double calcular() {
         return  0.0;
     }
 }
