@@ -1,0 +1,138 @@
+/* Reset básico para evitar espaçamentos indesejados */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Garante que o fundo seja aplicado corretamente */
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: #15464F;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* Container principal com layout flexível */
+.container {
+  display: flex;
+  height: 100vh;
+  flex-direction: row;
+  background-color: #15464F;
+}
+
+/* Lado da imagem */
+.imagem-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Imagem ocupa todo o espaço mantendo proporção */
+.imagem-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Conteúdo à direita */
+.conteudo-direita {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  overflow-y: auto;
+  background-color: #15464F;
+}
+
+/* Títulos */
+h1, h2 {
+  color: white;
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+h1 {
+  margin-top: 10px;
+}
+
+/* Labels dos inputs */
+label {
+  display: block;
+  margin-top: 15px;
+  color: black;
+  font-weight: 600;
+}
+
+/* Inputs e selects estilizados */
+input, select {
+  width: 100%;
+  max-width: 300px;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #15464F;
+}
+
+/* Botão estilizado */
+button {
+  margin-top: 25px;
+  padding: 12px 25px;
+  cursor: pointer;
+  background-color: #15464F;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0f373f;
+}
+
+/* Container do formulário */
+.form-container {
+  background-color: white;
+  padding: 30px 40px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-top: 10px;
+}
+
+/* Responsividade básica */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .imagem-container,
+  .conteudo-direita {
+    width: 100%;
+    height: auto;
+  }
+
+  .imagem-container img {
+    height: auto;
+  }
+}
