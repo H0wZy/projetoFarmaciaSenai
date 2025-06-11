@@ -161,7 +161,7 @@
           <input type="text" id="nome" name="nome" required />
 
           <label for="datadenascimento">Data de Nascimento:</label>
-          <input type="date" id="datadenascimento" name="idatadenascimento" required min="0" />
+          <input type="text" id="datadenascimento" name="idatadenascimento" required min="0" />
 
           <label for="genero">Gênero:</label>
           <select id="genero" name="genero" required>
@@ -232,7 +232,7 @@
       const funcionario = {
         id: Number(document.getElementById('id').value),
         nome: document.getElementById('nome').value,
-        dataDeNascimento: Number(document.getElementById('idade').value),
+        dataDeNascimento: new Date(document.getElementById('dataNascimento').value),
         genero: document.getElementById('genero').value,
         cargo: document.getElementById('cargo').value,
         salario: Number(document.getElementById('salario').value)
