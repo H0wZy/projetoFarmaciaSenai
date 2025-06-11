@@ -232,7 +232,7 @@
       const funcionario = {
         id: Number(document.getElementById('id').value),
         nome: document.getElementById('nome').value,
-        dataDeNascimento: Number(document.getElementById('idade').value),
+        dataDeNascimento: new Date(document.getElementById('dataNascimento').value),
         genero: document.getElementById('genero').value,
         cargo: document.getElementById('cargo').value,
         salario: Number(document.getElementById('salario').value)
